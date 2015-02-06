@@ -44,7 +44,8 @@ public class DataParser {
 		
 		while((currentLine = br.readLine()) != null) {
 			List<String> dataRow = Arrays.asList(currentLine.split(","));
-			currentLine += "," + ftr() + "," + ftr() + "," + ftr() + "," + ftr() + "," + ftr();
+			Board board = new Board(6, 7, 4, dataRow);
+			currentLine += "," + Eval.evalFeatureOne(board) + "," + (Eval.evalFeatureTwo(board) ? 100 : 0) + "," + ftr() + "," + ftr() + "," + ftr();
 			bw.write(currentLine);
 			bw.newLine();
 		}

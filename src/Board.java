@@ -5,6 +5,7 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author lzhu
@@ -40,6 +41,20 @@ public class Board {
 //				numOfDiscsInColumn[j]=0;
 		this.N=N;
 	 }
+	 
+	 Board(int height, int width, int N, List<String> dataRow){
+			this.width=width;
+			this.height=height;
+			board =new short[height][width];
+			for(int i=0;i<width;i++)
+				for(int j=0;j<height;j++){
+					board[j][i]=(short) Integer.parseInt(dataRow.get(i*6 + j));
+				}
+			numOfDiscsInColumn=new int[this.width];
+//				for(int j=0;j<width;j++)
+//					numOfDiscsInColumn[j]=0;
+			this.N=N;
+		 }
 	 
 	 Board( Board another) {
 		this.width = another.width;
