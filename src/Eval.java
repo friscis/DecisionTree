@@ -2,7 +2,7 @@
 public class Eval {
 	
 	
-	 public static int eval( Board board) {
+	 public static int evalFeatureOne( Board board) {
 		int sum = (int)(Math.random() * 10); //random seed so it doesn't always go for left column when it can't see any advantage
 		int[] advantages;
 		double denominator = board.N * board.N * board.N * board.N * board.N;
@@ -21,6 +21,10 @@ public class Eval {
 			sum = -1000000;
 		}
 		return sum;
+	 }
+	 
+	 public static boolean evalFeatureTwo( Board board) {
+		 return true;
 	 }
 	 
 }

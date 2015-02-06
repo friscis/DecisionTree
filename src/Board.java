@@ -739,7 +739,7 @@ public class Board {
 	 private void testEval() {
 
 		 System.out.println("Eval of this board");
-		 System.out.println(Eval.eval(this));
+		 System.out.println(Eval.evalFeatureOne(this));
 	 }
 	 
 	 public static void main(String[] args){
