@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,7 +17,9 @@ public class DataParser {
 	public static void main(String[] args) throws IOException {
 		inputFileName = args[0];
 		outputFileName = args[1];
+		System.out.println("Beginning Data Parsing...");
 		processFile();
+		System.out.println("Data Parsing Complete!");
 	}
 	
 	public static void processFile() throws IOException {
@@ -29,9 +32,28 @@ public class DataParser {
 		FileWriter fw = new FileWriter(outputFile.getAbsoluteFile());
 		BufferedWriter bw = new BufferedWriter(fw);
 		
+		FileReader fr = new FileReader(inputFile.getAbsoluteFile());
+		BufferedReader br = new BufferedReader(fr);
 		
+		String currentLine;
 		
+		currentLine = br.readLine();
+		currentLine += ",Ft1,Ft2,Ft3,Ft4,Ft5";
+		bw.write(currentLine);
+		bw.newLine();
 		
+		while((currentLine = br.readLine()) != null) {
+			List<String> dataRow = Arrays.asList(currentLine.split(","));
+			currentLine += "," + ftr() + "," + ftr() + "," + ftr() + "," + ftr() + "," + ftr();
+			bw.write(currentLine);
+			bw.newLine();
+		}
+		
+		br.close();
 		bw.close();
+	}
+
+	private static int ftr() {
+		return (int)(Math.random() * 100);
 	}
 }
