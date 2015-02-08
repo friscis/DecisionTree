@@ -48,11 +48,9 @@ public class Board {
 			board =new short[height][width];
 			for(int i=0;i<width;i++)
 				for(int j=0;j<height;j++){
-					board[j][i]=(short) Integer.parseInt(dataRow.get(i*6 + j));
+					board[height-1-j][i]=(short) Integer.parseInt(dataRow.get(i*6 + j));
 				}
 			numOfDiscsInColumn=new int[this.width];
-//				for(int j=0;j<width;j++)
-//					numOfDiscsInColumn[j]=0;
 			this.N=N;
 		 }
 	 
@@ -144,7 +142,7 @@ public class Board {
 			 return false;
 		 }
 		 else 
-			 return false;
+			 return true;
 	 }
 	 
 	 
@@ -754,7 +752,7 @@ public class Board {
 	 private void testEval() {
 
 		 System.out.println("Eval of this board");
-		 System.out.println(Eval.evalFeatureOne(this));
+		 System.out.println(Eval.ef1(this));
 	 }
 	 
 	 public static void main(String[] args){

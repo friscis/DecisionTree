@@ -38,14 +38,14 @@ public class DataParser {
 		String currentLine;
 		
 		currentLine = br.readLine();
-		currentLine += ",Ft1,Ft2,Ft3,Ft4,Ft5";
+		currentLine += ",Ft1,Ft2,Ft3,Ft4,Ft5,Ft6,Ft7,Ft8";
 		bw.write(currentLine);
 		bw.newLine();
 		
 		while((currentLine = br.readLine()) != null) {
 			List<String> dataRow = Arrays.asList(currentLine.split(","));
 			Board board = new Board(6, 7, 4, dataRow);
-			currentLine += "," + Eval.evalFeatureOne(board) + "," + (Eval.evalFeatureTwo(board) ? 100 : 0) + "," + ftr() + "," + ftr() + "," + ftr();
+			currentLine += "," + Eval.ef1(board) + "," + Eval.ef2(board) + "," + Eval.ef3(board) + "," + Eval.ef4(board) + "," + Eval.ef5(board) + "," + Eval.ef6(board) + "," + Eval.ef7(board) + "," + Eval.ef8(board);
 			bw.write(currentLine);
 			bw.newLine();
 		}
